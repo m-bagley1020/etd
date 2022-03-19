@@ -1,3 +1,5 @@
+import type { JSONSchema7 } from './schemas';
+
 export type PostgresTypes = "text" | "boolean" | "date" | "time" | "integer" | "point";
 export type ETypes = "image" | "video" | "file" | "number";
 export type AllTableTypes = ETypes | PostgresTypes;
@@ -25,6 +27,7 @@ export interface ITemplateFunctionStep {
     variables?: Record<VariableName, VariableMetadata>;
     runtime: "nodejs";
     trigger: "http" | "base";
+    schema?: { input?: JSONSchema7, output?: JSONSchema7 };
 }
 
 export interface ITemplateTableStep {
@@ -36,21 +39,13 @@ export interface ITemplateTableStep {
 
 export type ITemplateSteps = (ITemplateTableStep | ITemplateFunctionStep)[][];
 
-export interface ITemplateLauncherFunctionStep {
-    type: "function";
-    zip: AzureUrl;
-    functionName: string;
+export interface ITemplateLauncherFunctionStep extends ITemplateFunctionStep {
     variables?: Record<VariableName, VariableMetadata & { val?: string }>;
-    runtime: "nodejs";
-    trigger: "http" | "base";
     deployStatus?: "error" | "success" | undefined;
 }
 
-export interface ITemplateLauncherTableStep {
-    type: "table";
-    columnTypes: ICreateTableColumn[];
-    tableName: string;
-    data?: AzureUrl;
+
+export interface ITemplateLauncherTableStep extends ITemplateTableStep {
     deployStatus?: "error" | "success" | undefined;
 }
 

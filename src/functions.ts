@@ -1,3 +1,5 @@
+import type { JSONSchema7 } from './schemas';
+
 export type IFunctionParamCors = true | { 
     allowedOrigins: string[];
     allowedHeaders: ["Content-Type", "X-Amz-Date", "Authorization", "X-Api-Key", "X-Amz-Security-Token", "X-Amz-User-Agent"];
@@ -20,4 +22,5 @@ export interface IFunctionOptions {
     packageName: string;
     runtime: "nodejs";
     params: IFunctionParams;
+    schema?: { input?: JSONSchema7, output?: JSONSchema7 };
 }
