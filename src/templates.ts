@@ -1,4 +1,4 @@
-import type { JSONSchema7 } from './schemas';
+import type { IFunctionSchema } from './schemas';
 
 export type PostgresTypes = "text" | "boolean" | "date" | "time" | "integer" | "point";
 export type ETypes = "image" | "video" | "file" | "number";
@@ -27,7 +27,7 @@ export interface ITemplateFunctionStep {
     variables?: Record<VariableName, VariableMetadata>;
     runtime: "nodejs";
     trigger: "http" | "base";
-    schema?: { input?: JSONSchema7, output?: JSONSchema7 };
+    schema?: IFunctionSchema;
 }
 
 export interface ITemplateTableStep {
