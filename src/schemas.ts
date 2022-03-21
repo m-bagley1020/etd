@@ -161,5 +161,5 @@ export interface JSONSchema7 {
 export interface IFunctionSchema {
     input?: JSONSchema7;
     output?: JSONSchema7;
-    requestTypes?: "GET" | "POST" | "PUT" | "HEAD" | "DELETE" | "PATCH" | "OPTIONS" | "CONNECT" | "TRACE";
+    requestTypes?: ("GET" | "POST" | "PUT" | "HEAD" | "DELETE" | "PATCH" | "OPTIONS" | "CONNECT" | "TRACE")[];
 }
