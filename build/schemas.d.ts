@@ -119,3 +119,8 @@ export interface JSONSchema7 {
     writeOnly?: boolean;
     examples?: JSONSchema7Type;
 }
+export interface IFunctionSchema {
+    input?: JSONSchema7;
+    output?: JSONSchema7;
+    requestTypes?: ("GET" | "POST" | "PUT" | "HEAD" | "DELETE" | "PATCH" | "OPTIONS" | "CONNECT" | "TRACE")[];
+}

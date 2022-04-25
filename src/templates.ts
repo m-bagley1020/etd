@@ -70,3 +70,13 @@ export interface ITemplateFull extends Omit<ITemplate, "_id"> {
     is_private: boolean;
     is_admin: boolean;
 }
+
+export interface IPartialTemplateForLandingPage {
+    _id: number;
+    title: string;
+    description: string | null;
+    created_at: string;
+    tags: string[] | null;
+    image: string | null;
+    total_downloads?: number;
+}

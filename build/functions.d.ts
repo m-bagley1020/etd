@@ -1,3 +1,4 @@
+import type { IFunctionSchema } from './schemas';
 export declare type IFunctionParamCors = true | {
     allowedOrigins: string[];
     allowedHeaders: ["Content-Type", "X-Amz-Date", "Authorization", "X-Api-Key", "X-Amz-Security-Token", "X-Amz-User-Agent"];
@@ -18,4 +19,5 @@ export interface IFunctionOptions {
     packageName: string;
     runtime: "nodejs";
     params: IFunctionParams;
+    schema?: IFunctionSchema;
 }
