@@ -67,5 +67,6 @@ export interface IPartialTemplateForLandingPage {
     tags: string[] | null;
     image: string | null;
     total_downloads?: number;
+    is_verified: boolean;
 }
 export {};
